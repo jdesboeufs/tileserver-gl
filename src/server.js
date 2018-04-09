@@ -102,7 +102,7 @@ function start(opts) {
   var data = clone(config.data || {});
 
   if (opts.cors) {
-    app.use(cors());
+    app.use(cors({origin: true}));
   }
 
   Object.keys(config.styles || {}).forEach(function(id) {
