@@ -1,6 +1,9 @@
 {
   "name": "@jdesboeufs/tileserver-gl-light",
-  "version": "2.3.1-0",
+  "version": "2.3.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Map tile server for JSON GL styles - vector and server side generated raster tiles",
   "main": "src/main.js",
   "bin": "src/main.js",
