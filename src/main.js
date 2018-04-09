@@ -39,6 +39,10 @@ var opts = require('commander')
     8080
   )
   .option(
+    '--force-https',
+    'Force HTTPS in responses'
+  )
+  .option(
     '-C|--no-cors',
     'Disable Cross-origin resource sharing headers'
   )
@@ -65,7 +69,8 @@ var startServer = function(configPath, config) {
     bind: opts.bind,
     port: opts.port,
     cors: opts.cors,
-    silent: opts.silent
+    silent: opts.silent,
+    forceHttps: opts.forceHttps
   });
 };
 

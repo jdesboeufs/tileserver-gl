@@ -101,6 +101,11 @@ function start(opts) {
 
   var data = clone(config.data || {});
 
+  app.use((req, res, next) => {
+    req.serviceProtocol = opts.forceHttps ? 'https' : req.protocol
+    next()
+  })
+
   if (opts.cors) {
     app.use(cors({origin: true}));
   }
@@ -198,7 +203,7 @@ function start(opts) {
         version: styleJSON.version,
         name: styleJSON.name,
         id: id,
-        url: req.protocol + '://' + req.headers.host +
+        url: req.serviceProtocol + '://' + req.headers.host +
              '/styles/' + id + '/style.json' + query
       });
     });
