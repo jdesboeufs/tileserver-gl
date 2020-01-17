@@ -100,7 +100,7 @@ function start(opts) {
   const data = clone(config.data || {});
 
   if (opts.cors) {
-    app.use(cors());
+    app.use(cors({origin: true}));
   }
 
   for (const id of Object.keys(config.styles || {})) {
